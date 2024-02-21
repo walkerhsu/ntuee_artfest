@@ -1,10 +1,10 @@
 // IntroductionPage.tsx
 import React from 'react';
 import styled from 'styled-components';
-import { ArtworkCard } from '../components/ArtworkCard';
+import { ArtworkCard } from '../components/IntroPage/ArtworkCard';
 import Images from '../components/ImagesFile/Images';
-import Intro from '../components/Introduction';
-import ScrollToTop from '../components/ScrollToTop';
+import Intro from '../components/HomePage/Introduction';
+import ScrollToTop from '../components/IntroPage/ScrollToTop';
 
 // Styled components
 const Container = styled.div`

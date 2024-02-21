@@ -4,6 +4,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from './pages/HomePage';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
+import NewsImgs from './components/ImagesFile/NewsImgs';
+import NewsImgs2 from './components/ImagesFile/NewsImgs2';
 import './App.css';
 
 const IntroductionPage = lazy(() => import('./pages/IntroductionPage'));
@@ -41,7 +43,23 @@ function App() {
        
         <Route path='news' element={
           <Suspense fallback={<div>Loading...</div>}>
-            <NewsPage />
+            <NewsPage NewsImgs={NewsImgs}/>
+          </Suspense>
+        } />
+
+        <Route path='news/2' element={
+          <Suspense fallback={<div>Loading...</div>}>
+            <NewsPage NewsImgs={NewsImgs2}/>
+          </Suspense>
+        } />
+        <Route path='news/3' element={
+          <Suspense fallback={<div>Loading...</div>}>
+            <NewsPage NewsImgs={NewsImgs}/>
+          </Suspense>
+        } />
+        <Route path='news/4' element={
+          <Suspense fallback={<div>Loading...</div>}>
+            <NewsPage NewsImgs={NewsImgs}/>
           </Suspense>
         } />
 

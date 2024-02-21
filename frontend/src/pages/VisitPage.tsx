@@ -7,7 +7,7 @@ import info from '../images/info.png'
 import intro from '../images/intro.png';
 import placeholder from '../images/placeholder.png';
 import idea from '../images/idea.png';
-import { Gallery } from '../components/Gallery';
+import { Gallery } from '../components/VisitPage/Gallery';
 
 // Styled components
 const Container = styled.div`

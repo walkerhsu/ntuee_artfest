@@ -5,10 +5,10 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import gallery from '../images/gallery.jpg';
 import mainVisual from '../images/mainVisual_h.png';
-import { Card } from '../components/Card';
+import { Card } from '../components/HomePage/Card';
 import { motion } from 'framer-motion';
 import Images from '../components/ImagesFile/Images';
-import Intro from '../components/Introduction';
+import Intro from '../components/HomePage/Introduction';
 
 // Styled components
 const TitleContainer = styled.h3`

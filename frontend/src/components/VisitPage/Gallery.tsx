@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import galleryImgs from "./ImagesFile/GalleryImgs";
-import "./style.scss";
+import galleryImgs from "../ImagesFile/GalleryImgs";
+import "./galleryStyle.scss";
 
 interface GalleryBlockProps {
     imgsrc: string;
