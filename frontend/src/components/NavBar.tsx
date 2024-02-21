@@ -117,7 +117,7 @@ const NavBar: React.FC <IProps> = ({handleClick}) => {
   return (
     <Navbar role="navigation">
       <NavContainer>
-        <Logo href="/">2024 NTUEE ARTFEST</Logo>
+        <Logo href="/">ntuee_artfest</Logo>
         
         {(
           <Menu>

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CardContainer = styled.div`
+const ArtworkCardContainer = styled.div`
     max-width: 100%;
     min-width: 20%;
     height: 85%;
@@ -13,8 +13,8 @@ const CardContainer = styled.div`
     flex-direction: column;
     align-items: center;
     .pic{
-        width: 100%;
-        height: 65%;
+        max-width: 85%;
+        height: 85%;
         img{
             width: 100%;
             height: 100%;
@@ -38,20 +38,17 @@ const CardContainer = styled.div`
         background-color:transparent !important;
     }
 `
-interface CardProps {
+interface ArtworkCardProps {
     image: string;
     index: number;
     introduction: string;
 }
 
-export const Card: React.FC <CardProps> = ({image, index, introduction}) => {
+export const ArtworkCard: React.FC <ArtworkCardProps> = ({image, index, introduction}) => {
     return (
-        <CardContainer>
+        <ArtworkCardContainer>
             <div className="pic">
                 <img src={image}/>
-            </div>
-            <div className="card-header">
-                # {index+1}
             </div>
             <div className="card-body">
                 <h3 className="title">
@@ -63,6 +60,6 @@ export const Card: React.FC <CardProps> = ({image, index, introduction}) => {
                     {introduction}
                 </p>
             </div>
-        </CardContainer>
+        </ArtworkCardContainer>
     );
 }

@@ -1,4 +1,4 @@
-// ExhibitionPage.tsx
+// VisitPage.tsx
 import React from 'react';
 import styled from 'styled-components';
 import exhibition from '../components/ImagesFile/UrlImages'
@@ -122,7 +122,7 @@ const VideoContainer = styled.div`
 `;
 
 // Component
-const ExhibitionPage: React.FC = () => {
+const VisitPage: React.FC = () => {
   return (
     <Container>
       <Section>
@@ -131,7 +131,7 @@ const ExhibitionPage: React.FC = () => {
             <Title>展覽資訊</Title>
         </TitleContainer>
         <ImgContainer>
-            <img src={visit} alt="Exhibition" />
+            <img src={visit} alt="Visit" />
         </ImgContainer>
         <VideoBlockContainer>
             <div className="singleVideoBlock">
@@ -202,4 +202,4 @@ const ExhibitionPage: React.FC = () => {
   );
 }
 
-export default ExhibitionPage;
+export default VisitPage;

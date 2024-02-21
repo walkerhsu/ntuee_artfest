@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 import './App.css';
 
 const IntroductionPage = lazy(() => import('./pages/IntroductionPage'));
-const ExhibitionPage = lazy(() => import('./pages/ExhibitionPage'));
+const VisitPage = lazy(() => import('./pages/VisitPage'));
 const NewsPage = lazy(() => import('./pages/NewsPage'));
 const AboutUsPage = lazy(() => import('./pages/AboutUsPage'));
 const ErrorPage = lazy(() => import('./pages/ErrorPage'));
@@ -25,7 +25,7 @@ function App() {
          
         <Route path='visit' element={
           <Suspense fallback={<div>Loading...</div>}>
-            <ExhibitionPage />
+            <VisitPage />
           </Suspense>
         } />
 

@@ -4,7 +4,12 @@ import styled from 'styled-components';
 
 // Styled components
 const Container = styled.div`
-  padding: 2rem;
+  width: 97%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #000;
 `;
 
 const Section = styled.section`
@@ -16,45 +21,37 @@ const Title = styled.h2`
   margin-bottom: 1rem;
 `;
 
+const TitleContainer = styled.div`
+    width: 14vw;
+    height: 7vh;
+    border: 1px solid #000;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    img{
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: 0.7rem;
+    }
+
+`;
+
 const Paragraph = styled.p`
   font-size: 1.2rem;
   line-height: 1.6;
 `;
 
-const PersonnelContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const PersonnelImage = styled.img`
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  margin-bottom: 1rem;
-`;
-
-const PersonnelName = styled.h3`
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-`;
-
-const PersonnelRole = styled.p`
-  font-size: 1.2rem;
-`;
 
 // Component
 const NewsPage: React.FC = () => {
   return (
     <Container>
-      Latest News
-      <Section>
-        <Title>News Title</Title>
-        <Paragraph>
-          {/* Add news content here */}
-          This is the latest news content.
-        </Paragraph>
-      </Section>
+      <TitleContainer>
+        <Title>～最新貼文～</Title>
+      </TitleContainer>    
+
     </Container>
   );
 }

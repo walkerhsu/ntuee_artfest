@@ -1,58 +1,96 @@
 // IntroductionPage.tsx
 import React from 'react';
 import styled from 'styled-components';
+import { ArtworkCard } from '../components/ArtworkCard';
+import Images from '../components/ImagesFile/Images';
+import Intro from '../components/Introduction';
 
 // Styled components
 const Container = styled.div`
+  width: 97%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: 2rem;
+  margin-right: 2rem;
+  border: 1px solid #000;
 `;
 
-const ArtworkImage = styled.img`
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 2rem;
+const ArtworkContainer = styled.div`
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 50px;
+    row-gap: 50px;
+    border: 1px solid #000;
 `;
 
-const ArtworkDescription = styled.p`
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
+const SubtitleContainer = styled.div`
+    width: 12vw;
+    height: 7vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 2rem;
+    img{
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: 0.7rem;
+    }
+
 `;
 
-const AuthorInfo = styled.div`
-  border-top: 1px solid #ccc;
-  padding-top: 2rem;
-  text-align: center;
-`;
-
-const AuthorName = styled.h2`
-  font-size: 2rem;
-  margin-bottom: 1rem;
-`;
-
-const AuthorBio = styled.p`
-  font-size: 1.2rem;
+const Subtitle = styled.h3`
+  font-size: 1.5rem;
 `;
 
 // Component
 const IntroductionPage: React.FC = () => {
   return (
     <Container>
-      <ArtworkImage src="your-artwork-image-url.jpg" alt="Artwork" />
-      <ArtworkDescription>
-        {/* Add your artwork description here */}
-        This is the description of the artwork.
-      </ArtworkDescription>
-      <AuthorInfo>
-        <AuthorName>Author's Name</AuthorName>
-        <AuthorBio>
-          {/* Add author's bio here */}
-          This is the author's bio.
-        </AuthorBio>
-      </AuthorInfo>
-      {/* You can add additional content here as needed */}
+        <SubtitleContainer>
+            {/* <img src={placeholder} alt='info'></img> */}
+            <Subtitle>攝影作品集</Subtitle>
+        </SubtitleContainer>
+        <ArtworkContainer>
+            {Images.map((image, index) => {
+                return (
+                    <ArtworkCard image={image} index={index} introduction={Intro[index]}/>
+                );
+            })}
+        </ArtworkContainer>
+        <SubtitleContainer>
+            {/* <img src={placeholder} alt='info'></img> */}
+            <Subtitle>繪畫作品集</Subtitle>
+        </SubtitleContainer>
+        <ArtworkContainer>
+            {Images.map((image, index) => {
+                return (
+                    <ArtworkCard image={image} index={index} introduction={Intro[index]}/>
+                );
+            })}
+        </ArtworkContainer>
+        <SubtitleContainer>
+            {/* <img src={placeholder} alt='info'></img> */}
+            <Subtitle>書法作品集</Subtitle>
+        </SubtitleContainer>
+        <ArtworkContainer>
+            {Images.map((image, index) => {
+                return (
+                    <ArtworkCard image={image} index={index} introduction={Intro[index]}/>
+                );
+            })}
+        </ArtworkContainer>
+        <SubtitleContainer>
+            {/* <img src={placeholder} alt='info'></img> */}
+            <Subtitle>互動藝術作品集</Subtitle>
+        </SubtitleContainer>
+        <ArtworkContainer>
+            {Images.map((image, index) => {
+                return (
+                    <ArtworkCard image={image} index={index} introduction={Intro[index]}/>
+                );
+            })}
+        </ArtworkContainer>
     </Container>
   );
 }
