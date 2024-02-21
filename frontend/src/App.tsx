@@ -14,9 +14,12 @@ const ErrorPage = lazy(() => import('./pages/ErrorPage'));
 
 function App() {
   const ref: RefObject<HTMLDivElement>  = useRef(null);
+
   const handleClick = () => {
     ref.current?.scrollIntoView({ behavior: 'smooth' });
+    // console.log(ref.current);
   };
+
   return (
     <BrowserRouter>
       <NavBar handleClick={handleClick}/>
@@ -31,7 +34,7 @@ function App() {
 
         <Route path='introductions' element={
           <Suspense fallback={<div>Loading...</div>}>
-            <IntroductionPage />
+            <IntroductionPage/>
           </Suspense>
         }
         />

@@ -15,16 +15,16 @@ const Container = styled.div`
 `;
 
 const TitleContainer = styled.div`
-    width: 9vw;
+    width: 12vw;
     height: 7vh;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
     align-items: center;
     margin-bottom: 2rem;
     img{
-        width: 1.25rem;
-        height: 1.25rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: 0.7rem;
     }
 
 `;
@@ -41,7 +41,6 @@ const SubtitleContainer = styled.div`
         height: 1.5rem;
         margin-right: 0.7rem;
     }
-
 `;
 
 const ImgContainer = styled.div`
@@ -118,10 +117,11 @@ const ParagraphContainer = styled.div`
 `;
 
 const VideoContainer = styled.div`
+  width: 100%;
   margin-bottom: 2rem;
+  border: 1px solid black;
 `;
 
-// Component
 const VisitPage: React.FC = () => {
   return (
     <Container>
@@ -142,7 +142,7 @@ const VisitPage: React.FC = () => {
                 <div className='videoIntro'>
                     <VideoContainer>
                     {/* Add opening video */}
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Opening Video" allowFullScreen></iframe>
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Opening Video" allowFullScreen></iframe>
                     </VideoContainer>
                 </div>
             </div>
@@ -154,7 +154,7 @@ const VisitPage: React.FC = () => {
                 <div className='videoIntro'>
                     <VideoContainer>
                     {/* Add opening video */}
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Opening Video" allowFullScreen></iframe>
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Opening Video" allowFullScreen></iframe>
                     </VideoContainer>
                 </div>
             </div>

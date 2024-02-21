@@ -1,32 +1,22 @@
 import React from "react";
-import styled from 'styled-components';
+import { useNavigate } from "react-router-dom";
 import galleryImgs from "./ImagesFile/GalleryImgs";
 import "./style.scss";
 
-// const WordContainer = styled.h1`
-//     font-size: 3rem;
-//     display: inline-block;
-//     position: absolute;
-//     right: 1.5%;
-//     top: 50%;
-//     z-index: 10;
-//     color: white;
-//     text-align: center;
-//     border-radius: 10px;
-//     transition: all 0.5s ease-in;
-//     &:hover ${} {
-//         background-color: #333;
-//     }
-// `;
-
-interface GalleryProps {
+interface GalleryBlockProps {
     imgsrc: string;
     title: string;
 }
 
-const GalleryBlock:React.FC <GalleryProps> = ({imgsrc, title}) => {
+const GalleryBlock:React.FC <GalleryBlockProps> = ({imgsrc, title}) => {
+    const navigate = useNavigate();
+    const handleClick = () => {
+        navigate("/introductions");
+        // pageRef.current?.scrollIntoView({ behavior: "smooth" });
+        // console.log(pageRef.current);
+    }
     return (
-        <div className="gallery-item-wrapper">
+        <button style={{outline: 'none', background: 'none', border: 'none'}} onClick={handleClick} className="gallery-item-wrapper">
             <div className="gallery-item">
                 <div className="gallery-item-image sepia" 
                     style={{ backgroundImage: `url(${imgsrc})`}}>
@@ -42,13 +32,13 @@ const GalleryBlock:React.FC <GalleryProps> = ({imgsrc, title}) => {
                     </WordContainer>
                 </div> */}
             </div>
-        </div>
+        </button>
     );
 }
 
 const titles = ["攝影", "繪畫", "影視欣賞", "書法", "互動藝術",];
 
-export const Gallery = () => {
+export const Gallery:React.FC = () => {
     return (
         <div className="gallery">
             {galleryImgs.map((imgsrc, index) => (

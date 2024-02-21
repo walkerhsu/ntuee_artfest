@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { ArtworkCard } from '../components/ArtworkCard';
 import Images from '../components/ImagesFile/Images';
 import Intro from '../components/Introduction';
+import ScrollToTop from '../components/ScrollToTop';
 
 // Styled components
 const Container = styled.div`
@@ -43,10 +44,13 @@ const Subtitle = styled.h3`
   font-size: 1.5rem;
 `;
 
+
+
 // Component
 const IntroductionPage: React.FC = () => {
   return (
     <Container>
+        <ScrollToTop />
         <SubtitleContainer>
             {/* <img src={placeholder} alt='info'></img> */}
             <Subtitle>攝影作品集</Subtitle>
