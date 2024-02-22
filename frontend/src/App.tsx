@@ -2,6 +2,7 @@ import {useRef, RefObject} from 'react';
 import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from './pages/HomePage';
+import LoadingPage from './pages/LoadingPage';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import NewsImgs from './components/ImagesFile/NewsImgs';
@@ -29,42 +30,40 @@ function App() {
         <Route path='/' element={<HomePage />} />
          
         <Route path='visit' element={
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<LoadingPage />}>
             <VisitPage />
           </Suspense>
         } />
 
         <Route path='introductions' element={
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<LoadingPage />}>
             <IntroductionPage/>
           </Suspense>
         }
         />
        
         <Route path='news' element={
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<LoadingPage />}>
             <NewsPage NewsImgs={NewsImgs}/>
           </Suspense>
         } />
-
         <Route path='news/2' element={
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<LoadingPage />}>
             <NewsPage NewsImgs={NewsImgs2}/>
           </Suspense>
         } />
         <Route path='news/3' element={
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<LoadingPage />}>
             <NewsPage NewsImgs={NewsImgs}/>
           </Suspense>
         } />
         <Route path='news/4' element={
-          <Suspense fallback={<div>Loading...</div>}>
             <NewsPage NewsImgs={NewsImgs}/>
-          </Suspense>
+          
         } />
 
         <Route path='about' element={
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<LoadingPage />}>
             <AboutUsPage />
           </Suspense>
         } />
@@ -72,7 +71,7 @@ function App() {
         <Route path='*' element={<ErrorPage />} />
 
         {/* <Route path='Announcement/:id' element={
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<LoadingPage />}>
             <Announcement />
           </Suspense>
         } /> */}

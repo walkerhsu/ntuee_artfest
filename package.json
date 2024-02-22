@@ -12,6 +12,9 @@
         "backend": "cd backend && yarn start"
     },
     "dependencies": {
-        "pnpm": "^8.6.3"
+        "pnpm": "^8.6.3",
+        "react-loading": "^2.0.3",
+        "react-loading-overlay-ts": "^2.0.2",
+        "react-spinners": "^0.13.8"
     }
 }
