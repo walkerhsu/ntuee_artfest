@@ -3,6 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import { NewsBlock } from "../components/NewsPage/NewsBlock";
 import NewsImgs from "../components/ImagesFile/NewsImgs";
+import newspaper from '../images/newspaper.png';
 
 // Styled components
 const Container = styled.div`
@@ -12,37 +13,58 @@ const Container = styled.div`
   align-items: center;
   padding: 1rem;
   border: 1px solid #000;
+  .section {
+    width: 100%;
+    padding-top: 3.2rem;
+    padding-bottom: 3.2rem;
+    position: relative;
+  }
 `;
 
 const NewsSectionContainer = styled.div`
-  width: 100%;
-  height: 150vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  width: 95%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
   align-items: center;
+  column-gap: 0px;
+  row-gap: 10px;
   margin-bottom: 2rem;
   border: 1px solid #000;
+  padding-left: 3.2rem;
+  padding-right: 3.2rem;
 `;
 
 const Title = styled.h2`
+  width: 15%;
+  height: 30%;
   font-size: 2rem;
-  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 0.3rem;
+  margin-bottom: 0rem;
 `;
 
 const TitleContainer = styled.div`
-  width: 14vw;
-  height: 7vh;
+  width: 100%;
+  height: 20vh;
   border: none;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   margin-bottom: 2rem;
+  background-image: url(${newspaper});
+  background-size: 5vw;
+  background-position: center;
+  border: 1px solid #000;
   img {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
     margin-right: 0.7rem;
   }
 `;
@@ -86,8 +108,12 @@ const NewsPage: React.FC <NewsPageProps> = ({NewsImgs}) => {
   return (
     <Container>
       <TitleContainer>
-        <Title>～最新貼文～</Title>
+        <Title>
+          {/* <img src={newspaper} alt="newspaper"></img> */}
+          ～最新貼文～
+        </Title>
       </TitleContainer>
+      {/* <section className="section"></section> */}
       <NewsSectionContainer>
         {NewsImgs.map((news, index) => {
           return (

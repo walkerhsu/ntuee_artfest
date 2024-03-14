@@ -9,6 +9,7 @@ import { Card } from '../components/HomePage/Card';
 import { motion } from 'framer-motion';
 import Images from '../components/ImagesFile/Images';
 import Intro from '../components/HomePage/Introduction';
+import AboutUsPage from './AboutUsPage';
 
 // Styled components
 const TitleContainer = styled.h3`
@@ -106,6 +107,7 @@ const HomePage: React.FC = () => {
                 </motion.div>
             </motion.div>
         </GridContainer>
+        <AboutUsPage />
     </div>
   );
 }

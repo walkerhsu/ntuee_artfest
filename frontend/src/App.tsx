@@ -1,6 +1,7 @@
 import {useRef, RefObject} from 'react';
 import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import styled from "styled-components";
 import HomePage from './pages/HomePage';
 import LoadingPage from './pages/LoadingPage';
 import NavBar from './components/NavBar';
@@ -8,6 +9,11 @@ import Footer from './components/Footer';
 import NewsImgs from './components/ImagesFile/NewsImgs';
 import NewsImgs2 from './components/ImagesFile/NewsImgs2';
 import './App.css';
+
+const Span = styled.span`
+  display: inline-block;
+  margin-top: 7vh;
+`;
 
 const IntroductionPage = lazy(() => import('./pages/IntroductionPage'));
 const VisitPage = lazy(() => import('./pages/VisitPage'));
@@ -26,6 +32,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar handleClick={handleClick}/>
+      <Span/>
       <Routes>
         <Route path='/' element={<HomePage />} />
          

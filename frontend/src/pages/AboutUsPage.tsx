@@ -1,23 +1,65 @@
 // ContactPage.tsx
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import styled from "styled-components";
+import mainVisual_v from "../images/mainVisual_h.jpg";
 
 // Styled components
 const Container = styled.div`
   padding: 2rem;
 `;
+const HeaderContainer = styled.div`
+  width: 90vw;
+  height: 40vh;
+  display: grid;
+  grid-column-gap: 1.6rem;
+  grid-row-gap: 1rem;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 42%;
+  justify-content: flex-start;
+  align-content: start;
+  align-items: center;
+  position: relative;
+  padding-top: 2rem;
+  padding-left: 4.8rem;
+  padding-right: 2.4rem;
+  border: 1px solid #000;
+  .tab {
+    display: inline-block;
+    margin-left: 80px;
+  }
+  .word {
+    width: 50vw;
+    height: auto;
+    max-height: 37.5vh;
+    overflow: hidden;
+    border: 1px solid #000;
+    display: inline-block;
+    margin-left: 10px;
+  }
+  .pic {
+    width: 30vw;
+    height: 30vh;
+    max-height: 37.5vh;
+    border: 1px solid #000;
+    border-radius: 30px;
+    overflow: hidden;
+    display: inline-block;
+    margin-left: 10px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+`;
 
-const Section = styled.section`
+const HeaderTitle = styled.h1`
+  font-size: 3.5rem;
   margin-bottom: 2rem;
 `;
 
-const Title = styled.h2`
-  font-size: 2rem;
-  margin-bottom: 1rem;
-`;
-
-const ContactInfo = styled.div`
-  font-size: 1.2rem;
+const HeaderSubtitle = styled.div`
+  font-size: 1rem;
+  line-height: 1.3;
 `;
 
 const QuestionForm = styled.form`
@@ -72,54 +114,43 @@ const PersonnelRole = styled.p`
 
 // Component
 const AboutUsPage: React.FC = () => {
-  const [question, setQuestion] = useState<string>('');
-  const [answer, setAnswer] = useState<string>('');
+  const [question, setQuestion] = useState<string>("");
+  const [answer, setAnswer] = useState<string>("");
 
   const handleQuestionSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Call your AI bot API here with the question
     // For demonstration purpose, let's assume the answer comes back as a string
-    const response = await fetch(`your-bot-api-url?question=${encodeURIComponent(question)}`);
+    const response = await fetch(
+      `your-bot-api-url?question=${encodeURIComponent(question)}`
+    );
     const data = await response.json();
     setAnswer(data.answer);
   };
 
   return (
     <Container>
-      <Section>
-        <Title>藝術展簡介</Title>
-        {/* Add introduction to the art festival */}
-        <Paragraph>本屆藝術展的簡介內容。</Paragraph>
-      </Section>
-      <Section>
-        <Title>創展過程</Title>
-        {/* Add the process of creating the art festival */}
-        <Paragraph>創展過程的相關描述。</Paragraph>
-      </Section>
-      <Section>
-        <Title>籌辦單位人員介紹</Title>
-        <PersonnelContainer>
-          {/* <PersonnelImage src="person1.jpg" alt="Person 1" /> */}
-          <PersonnelName>姓名1</PersonnelName>
-          <PersonnelRole>負責組別1</PersonnelRole>
-        </PersonnelContainer>
-        <PersonnelContainer>
-          {/* <PersonnelImage src="person2.jpg" alt="Person 2" /> */}
-          <PersonnelName>姓名2</PersonnelName>
-          <PersonnelRole>負責組別2</PersonnelRole>
-        </PersonnelContainer>
-        {/* Add more personnel as needed */}
-      </Section>
-      <Section>
-        <Title>聯絡我們</Title>
-        <ContactInfo>
-          <p>Email: example@example.com</p>
-          <p>Phone: 123-456-7890</p>
-          <p>Address: 123 Street, City, Country</p>
-        </ContactInfo>
-      </Section>
-      <Section>
+      <HeaderContainer>
+        <div className="word">
+          <HeaderTitle>
+            「藝術一瞬 
+            <div className="tab" />
+            感動永恆」
+          </HeaderTitle>
+          <HeaderSubtitle>
+          在藝術的殿堂裡，一瞬間成就永恆。畫筆輕撫畫布，如詩如畫地描繪著情感的交錯，色彩的交融。音符飄逸在空氣中，彷彿是靈魂的共鳴，撫慰著每一顆疲憊的心靈。
+
+          這裡是藝術的聚集地，是夢想的搖籃，是感動的源泉。每一幅畫作都是一段故事的開始，每一首樂曲都是一場心靈的對話。在這片藝術的海洋裡，我們不僅能夠看見，更能夠感受到，那些美好的瞬間，那些永恆的價值。
+
+          藝術一瞬，感動永恆。那一刻的震撼，那一刻的感動，將伴隨著我們走過人生的旅程，永遠在心中閃耀。讓我們沉浸在藝術的海洋中，讓我們感受那份純淨的美好，讓我們一起去探索，去追尋，去創造。
+          </HeaderSubtitle>
+        </div>
+        <div className="pic">
+          <img src={mainVisual_v} alt="Art" />
+        </div>
+      </HeaderContainer>
+      {/* <Section>
         <Title>問題詢問</Title>
         <QuestionForm onSubmit={handleQuestionSubmit}>
           <Input
@@ -131,9 +162,9 @@ const AboutUsPage: React.FC = () => {
           <Button type="submit">提交</Button>
         </QuestionForm>
         {answer && <Answer>{answer}</Answer>}
-      </Section>
+      </Section> */}
     </Container>
   );
-}
+};
 
 export default AboutUsPage;
