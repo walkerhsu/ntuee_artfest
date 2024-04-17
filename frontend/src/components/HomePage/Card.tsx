@@ -41,17 +41,18 @@ const CardContainer = styled.div`
 interface CardProps {
     image: string;
     index: number;
+    type: string;
     introduction: string;
 }
 
-export const Card: React.FC <CardProps> = ({image, index, introduction}) => {
+export const Card: React.FC <CardProps> = ({image, type, index, introduction}) => {
     return (
         <CardContainer>
             <div className="pic">
-                <img src={image}/>
+                <img src={image} />
             </div>
             <div className="card-header">
-                # {index+1}
+                {type} #{index+1}
             </div>
             <div className="card-body">
                 <h3 className="title">
