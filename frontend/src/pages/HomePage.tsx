@@ -1,15 +1,14 @@
 // HomePage.tsx
-import React from 'react';
-import { useRef, RefObject, useState, useEffect } from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import gallery from '../images/gallery.jpg';
-import mainVisual from '../images/mainVisual_h.png';
-import { Card } from '../components/HomePage/Card';
-import { motion } from 'framer-motion';
-import Images from '../components/ImagesFile/Images';
-import Intro from '../components/HomePage/Introduction';
-import AboutUsPage from './AboutUsPage';
+import React from "react";
+import { useRef, RefObject, useState, useEffect } from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import gallery from "../images/gallery.jpg";
+import mainVisual from "../images/mainVisual_h.png";
+import { Card } from "../components/HomePage/Card";
+import { motion } from "framer-motion";
+import { IMAGE_INFO } from "../images/exhibits_info";
+import AboutUsPage from "./AboutUsPage";
 
 // Styled components
 const TitleContainer = styled.h3`
@@ -42,74 +41,94 @@ const MainContainer = styled.div`
     align-items: center;
   }
 `;
-const WordContainer = styled.div.attrs<{ size: number }, { width: number; height: number }>((props) => ({width: props.width, height: props.height}))<{ size: number }>`
-    width: ${(props) => props.size}px;
-    height: ${(props) => props.size}px;
-    border: 1px solid #000;
-    text-align: left;
+const WordContainer = styled.div.attrs<
+  { size: number },
+  { width: number; height: number }
+>((props) => ({ width: props.width, height: props.height }))<{ size: number }>`
+  width: ${(props) => props.size}px;
+  height: ${(props) => props.size}px;
+  border: 1px solid #000;
+  text-align: left;
 `;
 
 const Title = styled.h1`
-    font-size: 3rem;
-    margin-bottom: 2rem;
+  font-size: 3rem;
+  margin-bottom: 2rem;
 `;
 
-const GridContainer = styled.div.attrs<{ size: number }, { width: number; height: number }>((props) => ({width: props.width, height: props.height}))<{ size: number }>`
+const GridContainer = styled.div.attrs<
+  { size: number },
+  { width: number; height: number }
+>((props) => ({ width: props.width, height: props.height }))<{ size: number }>`
+  width: 100%;
+  height: ${(props) => props.size}px;
+  border: 3px solid #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  .carousel {
+    cursor: grab;
     width: 100%;
-    height: ${(props) => props.size}px;
-    border: 3px solid #111;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 0.5rem;
-    .carousel {
-        cursor: grab;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        .inner-carousel {
-            display: flex;
-            flex-direction: row;
-            gap: 1rem;
-            padding: 1rem;
-        }
+    overflow: hidden;
+    .inner-carousel {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      padding: 1rem;
     }
+  }
 `;
 
 // Component
 const HomePage: React.FC = () => {
   const [width, setWidth] = useState(0);
-  const carousel: RefObject<HTMLDivElement>  = useRef(null);
+  const carousel: RefObject<HTMLDivElement> = useRef(null);
 
   useEffect(() => {
-    setWidth(carousel.current!.scrollWidth - carousel.current!.clientWidth)
-  },[]);
+    setWidth(carousel.current!.scrollWidth - carousel.current!.clientWidth);
+  }, []);
 
   return (
     <div>
-        <MainContainer>
-            <TitleContainer>
-                <WordContainer size={500}>
-                    <Title>瞬感</Title>
-                </WordContainer>
-            </TitleContainer>
-            
-        </MainContainer>
-        <GridContainer size={580}>
-            <motion.div ref={carousel} whileTap={{cursor: "grabbing"}} className='carousel'>
-                <motion.div drag='x' dragConstraints={{right: 0, left: -width}} className='inner-carousel'>
-                    {Images.map((image, index) => {
-                        return (
-                            <Card image={image} index={index} introduction={Intro[index]}/>
-                        );
-                    })}
-                </motion.div>
-            </motion.div>
-        </GridContainer>
-        <AboutUsPage />
+      <MainContainer>
+        <TitleContainer>
+          <WordContainer size={500}>
+            <Title>瞬感</Title>
+          </WordContainer>
+        </TitleContainer>
+      </MainContainer>
+      <GridContainer size={580}>
+        <motion.div
+          ref={carousel}
+          whileTap={{ cursor: "grabbing" }}
+          className="carousel"
+        >
+          <motion.div
+            drag="x"
+            dragConstraints={{ right: 0, left: -width }}
+            className="inner-carousel"
+          >
+            {IMAGE_INFO.map((image_classes, _) => {
+              return image_classes.images.map((image, index_image) => {
+                return (
+                  <Card
+                    image={image["image"]}
+                    index={index_image}
+                    type={image_classes["type"]}
+                    introduction={image["introduction"]}
+                  />
+                );
+              });
+            })}
+          </motion.div>
+        </motion.div>
+      </GridContainer>
+      <AboutUsPage />
     </div>
   );
-}
+};
 
 export default HomePage;

@@ -40,11 +40,12 @@ const ArtworkCardContainer = styled.div`
 `
 interface ArtworkCardProps {
     image: string;
+    type: string;
     index: number;
     introduction: string;
 }
 
-export const ArtworkCard: React.FC <ArtworkCardProps> = ({image, index, introduction}) => {
+export const ArtworkCard: React.FC <ArtworkCardProps> = ({image, type, index, introduction}) => {
     return (
         <ArtworkCardContainer>
             <div className="pic">

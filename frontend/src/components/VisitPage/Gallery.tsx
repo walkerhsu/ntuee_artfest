@@ -1,48 +1,61 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import { useNavigate } from "react-router-dom";
 import galleryImgs from "../ImagesFile/GalleryImgs";
 import "./galleryStyle.scss";
 
 interface GalleryBlockProps {
-    imgsrc: string;
-    title: string;
+  imgsrc: string;
+    Chinese: string;
+    English: string;
 }
 
-const GalleryBlock:React.FC <GalleryBlockProps> = ({imgsrc, title}) => {
-    const navigate = useNavigate();
-    const handleClick = () => {
-        navigate("/introductions");
-        // pageRef.current?.scrollIntoView({ behavior: "smooth" });
-        // console.log(pageRef.current);
-    }
-    return (
-        <button style={{outline: 'none', background: 'none', border: 'none'}} onClick={handleClick} className="gallery-item-wrapper">
-            <div className="gallery-item">
-                <div className="gallery-item-image sepia" 
-                    style={{ backgroundImage: `url(${imgsrc})`}}>
-                    <div className="wordContainer">
-                        {title}
-                    </div>
-                </div>
+const GalleryBlock: React.FC<GalleryBlockProps> = ({ imgsrc, Chinese, English }) => {
+  const navigate = useNavigate();
+  const handleClick = (title: string) => () => {
+    navigate("/introductions", { state: { title: title } });
+    // pageRef.current?.scrollIntoView({ behavior: "smooth" });
+    // console.log(pageRef.current);
+    return;
+  };
+  return (
+    <button
+      style={{ outline: "none", background: "none", border: "none" }}
+      onClick={handleClick(English)}
+      className="gallery-item-wrapper"
+    >
+      <div className="gallery-item">
+        <div
+          className="gallery-item-image sepia"
+          style={{ backgroundImage: `url(${imgsrc})` }}
+        >
+          <div className="wordContainer">{Chinese}</div>
+        </div>
 
-                {/* <div className="gallery-item-image masked"
+        {/* <div className="gallery-item-image masked"
                     style={{ backgroundImage: `url(${imgsrc})` }}>
                     <WordContainer>
                         Artwork
                     </WordContainer>
                 </div> */}
-            </div>
-        </button>
-    );
-}
+      </div>
+    </button>
+  );
+};
 
-const titles = ["攝影", "繪畫", "影視欣賞", "書法", "互動藝術",];
+const titles = [
+  { Chinese: "攝影", English: "Photography" },
+  { Chinese: "繪畫", English: "Drawing" },
+  { Chinese: "影視欣賞", English: "Audiovisual" },
+  { Chinese: "書法", English: "Calligraphy" },
+  { Chinese: "互動藝術", English: "Interactive" },
+];
 
-export const Gallery:React.FC = () => {
-    return (
-        <div className="gallery">
-            {galleryImgs.map((imgsrc, index) => (
-                <GalleryBlock imgsrc={imgsrc} title={titles[index]} key={index} />))}
-        </div>
-    );
-}
+export const Gallery: React.FC = () => {
+  return (
+    <div className="gallery">
+      {galleryImgs.map((imgsrc, index) => (
+          <GalleryBlock imgsrc={imgsrc} Chinese={titles[index]["Chinese"]} English={ titles[index]["English"]} key={index} />
+      ))}
+    </div>
+  );
+};
