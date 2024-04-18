@@ -5,10 +5,10 @@ import mainVisual_v from "../images/mainVisual_h.jpg";
 
 // Styled components
 const Container = styled.div`
-  padding: 2rem;
+  padding: 0rem;
 `;
 const HeaderContainer = styled.div`
-  width: 90vw;
+  width: calc(100vw-9.6rem-2px);
   height: 40vh;
   display: grid;
   grid-column-gap: 1.6rem;
@@ -61,6 +61,29 @@ const HeaderSubtitle = styled.div`
   font-size: 1rem;
   line-height: 1.3;
 `;
+
+const ContributerContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 1px solid #000;
+`;
+
+const Contributer = styled.div`
+  width: 20%;
+  height: 100%;
+`;
+
+const Authors = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+`;
+
+const Author = styled.div``;
 
 const QuestionForm = styled.form`
   display: flex;
@@ -134,22 +157,35 @@ const AboutUsPage: React.FC = () => {
       <HeaderContainer>
         <div className="word">
           <HeaderTitle>
-            「藝術一瞬 
+            「藝術一瞬
             <div className="tab" />
             感動永恆」
           </HeaderTitle>
           <HeaderSubtitle>
-          在藝術的殿堂裡，一瞬間成就永恆。畫筆輕撫畫布，如詩如畫地描繪著情感的交錯，色彩的交融。音符飄逸在空氣中，彷彿是靈魂的共鳴，撫慰著每一顆疲憊的心靈。
-
-          這裡是藝術的聚集地，是夢想的搖籃，是感動的源泉。每一幅畫作都是一段故事的開始，每一首樂曲都是一場心靈的對話。在這片藝術的海洋裡，我們不僅能夠看見，更能夠感受到，那些美好的瞬間，那些永恆的價值。
-
-          藝術一瞬，感動永恆。那一刻的震撼，那一刻的感動，將伴隨著我們走過人生的旅程，永遠在心中閃耀。讓我們沉浸在藝術的海洋中，讓我們感受那份純淨的美好，讓我們一起去探索，去追尋，去創造。
+            在藝術的殿堂裡，一瞬間成就永恆。畫筆輕撫畫布，如詩如畫地描繪著情感的交錯，色彩的交融。音符飄逸在空氣中，彷彿是靈魂的共鳴，撫慰著每一顆疲憊的心靈。
+            這裡是藝術的聚集地，是夢想的搖籃，是感動的源泉。每一幅畫作都是一段故事的開始，每一首樂曲都是一場心靈的對話。在這片藝術的海洋裡，我們不僅能夠看見，更能夠感受到，那些美好的瞬間，那些永恆的價值。
+            藝術一瞬，感動永恆。那一刻的震撼，那一刻的感動，將伴隨著我們走過人生的旅程，永遠在心中閃耀。讓我們沉浸在藝術的海洋中，讓我們感受那份純淨的美好，讓我們一起去探索，去追尋，去創造。
           </HeaderSubtitle>
         </div>
         <div className="pic">
           <img src={mainVisual_v} alt="Art" />
         </div>
       </HeaderContainer>
+      <ContributerContainer>
+        <Contributer>
+          <img src={"/contributors/hershey.jpg"} alt="Hershey" width="100%" />
+        </Contributer>
+        <Contributer>
+          <img src={"/contributors/EESA.jpg"} alt="Hershey" width="100%" />
+        </Contributer>
+        <Contributer>
+          <img
+            src={"/contributors/RYB.png"}
+            alt="紅然股份有限公司"
+            width="100%"
+          />
+        </Contributer>
+      </ContributerContainer>
       {/* <Section>
         <Title>問題詢問</Title>
         <QuestionForm onSubmit={handleQuestionSubmit}>

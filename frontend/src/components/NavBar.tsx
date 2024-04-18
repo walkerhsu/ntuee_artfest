@@ -9,6 +9,7 @@ const Navbar = styled.nav`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border: 1px solid #000;
   position: fixed;
+  z-index: 10000;
 `;
 
 const NavContainer = styled.div`

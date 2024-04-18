@@ -19,6 +19,7 @@ const IntroductionPage = lazy(() => import('./pages/IntroductionPage'));
 const VisitPage = lazy(() => import('./pages/VisitPage'));
 const NewsPage = lazy(() => import('./pages/NewsPage'));
 const AboutUsPage = lazy(() => import('./pages/AboutUsPage'));
+const DetailArtWorkPage = lazy(() => import('./pages/DetailArtWorkPage'));
 const ErrorPage = lazy(() => import('./pages/ErrorPage'));
 
 function App() {
@@ -72,6 +73,12 @@ function App() {
         <Route path='about' element={
           <Suspense fallback={<LoadingPage />}>
             <AboutUsPage />
+          </Suspense>
+        } />
+
+        <Route path='artwork/:type/:index' element={
+          <Suspense fallback={<LoadingPage />}>
+            <DetailArtWorkPage />
           </Suspense>
         } />
 

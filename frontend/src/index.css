@@ -7,6 +7,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+footer {
+  width: calc(75vw);
+  padding: 0 12.5vw ;
+  height: calc(75vw / 7.5);
+  display: grid;
+  grid-template-columns: 2fr 2fr 7fr 4fr;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

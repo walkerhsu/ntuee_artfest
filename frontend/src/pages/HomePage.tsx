@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import gallery from "../images/gallery.jpg";
 import mainVisual from "../images/mainVisual_h.png";
-import { Card } from "../components/HomePage/Card";
+import { ArtworkCard } from "../components/ArtworkCard";
 import { motion } from "framer-motion";
 import { IMAGE_INFO } from "../images/exhibits_info";
 import AboutUsPage from "./AboutUsPage";
@@ -21,8 +21,7 @@ const TitleContainer = styled.h3`
 `;
 
 const MainContainer = styled.div`
-  width: 100%;
-  min-width: 1280px;
+  width: calc(100% - 2rem - 2px);
   height: 100%;
   text-align: center;
   flex-direction: column;
@@ -60,7 +59,7 @@ const GridContainer = styled.div.attrs<
   { size: number },
   { width: number; height: number }
 >((props) => ({ width: props.width, height: props.height }))<{ size: number }>`
-  width: 100%;
+  width: calc(100%-6px-1rem);
   height: ${(props) => props.size}px;
   border: 3px solid #111;
   display: flex;
@@ -92,7 +91,7 @@ const HomePage: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <MainContainer>
         <TitleContainer>
           <WordContainer size={500}>
@@ -114,7 +113,7 @@ const HomePage: React.FC = () => {
             {IMAGE_INFO.map((image_classes, _) => {
               return image_classes.images.map((image, index_image) => {
                 return (
-                  <Card
+                  <ArtworkCard
                     image={image["image"]}
                     index={index_image}
                     type={image_classes["type"]}
@@ -127,7 +126,7 @@ const HomePage: React.FC = () => {
         </motion.div>
       </GridContainer>
       <AboutUsPage />
-    </div>
+    </>
   );
 };
 

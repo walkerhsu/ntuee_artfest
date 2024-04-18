@@ -1,7 +1,7 @@
 // IntroductionPage.tsx
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import { ArtworkCard } from "../components/IntroPage/ArtworkCard";
+import { ArtworkCard } from "../components/ArtworkCard";
 import { IMAGE_INFO } from "../images/exhibits_info";
 import ScrollToTop from "../components/IntroPage/ScrollToTop";
 import { useLocation } from "react-router-dom";
@@ -40,14 +40,14 @@ const SubtitleContainer = styled.div`
 `;
 
 const Subtitle = styled.h3<{ id: string }>`
-    id: ${(props) => props.id};
+  id: ${(props) => props.id};
   font-size: 1.5rem;
 `;
 
 type ArtworkType = "Photography" | "Drawings" | "Calligraphy" | "Interactive";
 const ArtWorkCards: React.FC<ArtworkType> = (type: ArtworkType) => {
   return (
-      <ArtworkContainer>
+    <ArtworkContainer>
       {IMAGE_INFO.map((image_classes, _) => {
         return image_classes["type"] === type
           ? image_classes.images.map((image, index_image) => {
@@ -67,25 +67,25 @@ const ArtWorkCards: React.FC<ArtworkType> = (type: ArtworkType) => {
 };
 
 interface state {
-    title: string | undefined;
+  title: string | undefined;
 }
 // Component
 const IntroductionPage: React.FC = () => {
-    const { state } = useLocation();
-    const { title } = (state as state) || {}
+  const { state } = useLocation();
+  const { title } = (state as state) || {};
 
-    useEffect(() => {
-        console.log(title);
-        const element = document.getElementById("ArtworkContainer_"+title);
-        if (element) {
-            element.scrollIntoView();
-            const nav_element = document.getElementsByTagName("nav")[0];
-            window.scrollBy(0, -nav_element.clientHeight);
-        }
-        console.log(element)
-    }, [title]);
+  useEffect(() => {
+    console.log(title);
+    const element = document.getElementById("ArtworkContainer_" + title);
+    if (element) {
+      element.scrollIntoView();
+      const nav_element = document.getElementsByTagName("nav")[0];
+      window.scrollBy(0, -nav_element.clientHeight);
+    }
+    console.log(element);
+  }, [title]);
 
-    return (
+  return (
     <Container>
       <ScrollToTop />
       <SubtitleContainer>

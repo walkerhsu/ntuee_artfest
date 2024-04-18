@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import galleryImgs from "../ImagesFile/GalleryImgs";
 import "./galleryStyle.scss";
@@ -26,7 +26,7 @@ const GalleryBlock: React.FC<GalleryBlockProps> = ({ imgsrc, Chinese, English })
       <div className="gallery-item">
         <div
           className="gallery-item-image sepia"
-          style={{ backgroundImage: `url(${imgsrc})` }}
+          style={{backgroundImage: `url(${imgsrc})`}}
         >
           <div className="wordContainer">{Chinese}</div>
         </div>
