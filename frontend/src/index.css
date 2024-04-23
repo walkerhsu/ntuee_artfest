@@ -7,10 +7,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h3 {
+  margin: 0;
+}
+
 footer {
-  width: calc(75vw);
-  padding: 0 12.5vw ;
-  height: calc(75vw / 7.5);
+  width: calc(100% - 20vw);
+  padding: 0 10vw ;
+  height: calc(80vw / 7.5);
   display: grid;
   grid-template-columns: 2fr 2fr 7fr 4fr;
   align-items: center;

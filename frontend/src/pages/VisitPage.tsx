@@ -15,7 +15,7 @@ const Container = styled.div`
 `;
 
 const TitleContainer = styled.div`
-    width: 12vw;
+    width: 100%;
     height: 7vh;
     display: flex;
     flex-direction: row;
@@ -30,7 +30,7 @@ const TitleContainer = styled.div`
 `;
 
 const SubtitleContainer = styled.div`
-    width: 12vw;
+    width: 100%;
     height: 7vh;
     display: flex;
     flex-direction: row;
@@ -47,50 +47,77 @@ const ImgContainer = styled.div`
     display: flex;
     justify-content: center;
     margin-bottom: 2rem;
+    width: 100%;
     img{
-        width: 200%;
+        width: 100%;
         height: 100%;
     }
 `;
 
 const VideoBlockContainer = styled.div`
     width: 100%;
-    height: 760px;
-    border: 1px solid black;
+    height: 1000px;
+    // border: 1px solid black;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     margin-bottom: 2rem;
     .singleVideoBlock{
-        width: 80%;
-        height: 372px;
+        width: 100%;
+        height: 500px;
         border: 1px solid black;
-        margin: 0.5rem;
+        // margin: 0rem;
         display: flex;
         flex-direction: row;
         align-items: center;
-        .videoIntro{
-            width: 50%;
+        .videoIntroWord{
+            width: 25%;
             height: 85%;
-            border: 1px solid black;
+            // border: 1px solid black;
             margin: 0.5rem;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
         }
+
+        .videoIntroVideo{
+            width: 75%;
+            height: 96%;
+            // border: 1px solid black;
+            padding: 2%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+        @media screen and (max-width: 768px) {
+            flex-direction: column;
+            height: 760px;
+            .videoIntroWord{
+                width: 100%;
+                height: 20%;
+            }
+            .videoIntroVideo{
+                width: 100%;
+                height: 80%;
+            }
+        }
     }
 
 `
 
 const Section = styled.section`
-  margin-bottom: 2rem;
+    width: 100%;
+    margin-bottom: 2rem;
 `;
 
 const Title = styled.h3`
   font-size: 1.5rem;
 `;
+
 
 const Subtitle = styled.h3`
   font-size: 1.5rem;
@@ -108,7 +135,7 @@ const ParagraphContainer = styled.div`
     .block{
         width: 100%;
         height: 50%;
-        border: 1px solid black;
+        // border: 1px solid black;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
@@ -117,9 +144,10 @@ const ParagraphContainer = styled.div`
 `;
 
 const VideoContainer = styled.div`
-  width: 100%;
-  margin-bottom: 2rem;
-  border: 1px solid black;
+    height: 100%;
+  width: 94%;
+  margin: 2rem 3%;
+//   border: 1px solid black;
 `;
 
 const VisitPage: React.FC = () => {
@@ -135,26 +163,26 @@ const VisitPage: React.FC = () => {
         </ImgContainer>
         <VideoBlockContainer>
             <div className="singleVideoBlock">
-                <div className='videoIntro'>
+                <div className='videoIntroWord'>
                     <Subtitle>開幕影片</Subtitle>
                     <p>開幕影片簡介...</p>
                 </div>
-                <div className='videoIntro'>
+                <div className='videoIntroVideo'>
                     <VideoContainer>
                     {/* Add opening video */}
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Opening Video" allowFullScreen></iframe>
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Opening Video" allowFullScreen></iframe>
                     </VideoContainer>
                 </div>
             </div>
             <div className="singleVideoBlock">
-                <div className='videoIntro'>
+                <div className='videoIntroWord'>
                     <Subtitle>閉幕影片</Subtitle>
                     <p>閉幕影片簡介...</p>
                 </div>
-                <div className='videoIntro'>
+                <div className='videoIntroVideo'>
                     <VideoContainer>
                     {/* Add opening video */}
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Opening Video" allowFullScreen></iframe>
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Opening Video" allowFullScreen></iframe>
                     </VideoContainer>
                 </div>
             </div>

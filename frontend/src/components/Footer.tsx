@@ -14,11 +14,11 @@ const IconImage = styled.img`
 
 const FooterContainer = styled.div`
   background-color: #f8f9fa;
-  padding: 1rem;
+  padding: 2%;
   text-align: center;
   position: relative;
   bottom: 0;
-  width: calc(100%-2rem);
+  width: calc(96%);
   footer {
     p {
       margin: 0;
@@ -33,6 +33,18 @@ const MiddleFooter = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  .footer_logo_word {
+    font-size: 1.5rem;
+    @media (max-width: 850px) {
+      font-size: 1.0rem;
+    }
+    @media (max-width: 610px) {
+      font-size: 0.7rem;
+    }
+    @media (max-width: 466px) {
+      font-size: 0.6rem;
+    }
+  }
 `;
 
 const ImagesContainer = styled.div`
@@ -54,17 +66,28 @@ const SingleImageContainer = styled.div`
     transform: scale(1);
     opacity: 0.8;
   }
-
 `;
 
 const RightFooter = styled.div`
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-rows: 2fr 1fr;
-    grid-template-columns: 1fr;
-    justify-content: space-evenly;
-    align-items: center;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr;
+  justify-content: space-evenly;
+  align-items: center;
+  p {
+    font-size: 1.5rem;
+    @media (max-width: 850px) {
+      font-size: 1rem;
+    }
+    @media (max-width: 610px) {
+      font-size: 0.8rem;
+    }
+    @media (max-width: 466px) {
+      font-size: 0.6rem;
+    }
+  }
 `;
 
 const ContributerGrid = styled.div`
@@ -79,6 +102,21 @@ const ContributerGrid = styled.div`
 
 const Contributer = styled.div`
   display: inline-block;
+  p {
+    font-size: 1.3rem;
+    @media (max-width: 1200px) {
+      font-size: 1rem;
+    }
+    @media (max-width: 850px) {
+      font-size: 0.8rem;
+    }
+    @media (max-width: 610px) {
+      font-size: 0.6rem;
+    }
+    @media (max-width: 466px) {
+      font-size: 0.5rem;
+    }
+  }
 `;
 
 interface FProps {
@@ -98,9 +136,6 @@ const Footer: React.FC<FProps> = ({ ref }) => {
         </LeftFooter>
         <div></div>
         <MiddleFooter>
-          {/* <div style={{height: "5%"}}> */}
-          {/* <img src="/facebook.png" alt="facebook" width="100%" height="100%"/> */}
-          {/* </div> */}
           <ImagesContainer>
             <SingleImageContainer>
               <a href="https://www.facebook.com/profile.php?id=100082950921250">
@@ -121,23 +156,27 @@ const Footer: React.FC<FProps> = ({ ref }) => {
               </a>
             </SingleImageContainer>
           </ImagesContainer>
-                  <p style={{ fontSize: "150%" }}>© 2024 NTUEE Art Festival</p>
+          <p className="footer_logo_word">© 2024 NTUEE Art Festival</p>
         </MiddleFooter>
         <RightFooter>
-          <div style={{width: "100%"}}>
-            <p style={{ fontSize: "150%" }}>Contributors</p>
-            </div>
+          <div style={{ width: "100%" }}>
+            <p>Contributors</p>
+          </div>
           <ContributerGrid>
             <Contributer>
-            © Walker
+              <p>© Walker</p>
             </Contributer>
-            <Contributer>© Oscar</Contributer>
-            <Contributer>© Wu</Contributer>
-            <Contributer>© Hsieh</Contributer>
+            <Contributer>
+              <p>© Oscar</p>
+            </Contributer>
+            <Contributer>
+              <p>© Wu</p>
+            </Contributer>
+            <Contributer>
+              <p>© Hsieh</p>
+            </Contributer>
           </ContributerGrid>
         </RightFooter>
-              
-        {/* <p>asdfasdf</p> */}
       </footer>
     </FooterContainer>
   );

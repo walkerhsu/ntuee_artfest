@@ -12,9 +12,8 @@ interface GalleryBlockProps {
 const GalleryBlock: React.FC<GalleryBlockProps> = ({ imgsrc, Chinese, English }) => {
   const navigate = useNavigate();
   const handleClick = (title: string) => () => {
+    console.log(title);
     navigate("/introductions", { state: { title: title } });
-    // pageRef.current?.scrollIntoView({ behavior: "smooth" });
-    // console.log(pageRef.current);
     return;
   };
   return (
@@ -44,7 +43,7 @@ const GalleryBlock: React.FC<GalleryBlockProps> = ({ imgsrc, Chinese, English })
 
 const titles = [
   { Chinese: "攝影", English: "Photography" },
-  { Chinese: "繪畫", English: "Drawing" },
+  { Chinese: "繪畫", English: "Drawings" },
   { Chinese: "影視欣賞", English: "Audiovisual" },
   { Chinese: "書法", English: "Calligraphy" },
   { Chinese: "互動藝術", English: "Interactive" },

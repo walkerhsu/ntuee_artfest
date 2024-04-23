@@ -16,7 +16,7 @@ const TitleContainer = styled.h3`
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: 2px solid #000;
+  // border: 2px solid #000;
   padding: 3rem;
 `;
 
@@ -46,7 +46,7 @@ const WordContainer = styled.div.attrs<
 >((props) => ({ width: props.width, height: props.height }))<{ size: number }>`
   width: ${(props) => props.size}px;
   height: ${(props) => props.size}px;
-  border: 1px solid #000;
+  // border: 1px solid #000;
   text-align: left;
 `;
 
@@ -55,13 +55,10 @@ const Title = styled.h1`
   margin-bottom: 2rem;
 `;
 
-const GridContainer = styled.div.attrs<
-  { size: number },
-  { width: number; height: number }
->((props) => ({ width: props.width, height: props.height }))<{ size: number }>`
+const GridContainer = styled.div`
   width: calc(100%-6px-1rem);
-  height: ${(props) => props.size}px;
-  border: 3px solid #111;
+  height: 580px;
+  // border: 3px solid #111;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -99,7 +96,7 @@ const HomePage: React.FC = () => {
           </WordContainer>
         </TitleContainer>
       </MainContainer>
-      <GridContainer size={580}>
+      <GridContainer>
         <motion.div
           ref={carousel}
           whileTap={{ cursor: "grabbing" }}
@@ -117,6 +114,8 @@ const HomePage: React.FC = () => {
                     image={image["image"]}
                     index={index_image}
                     type={image_classes["type"]}
+                    title={image["title"]}
+                    author={image["author"]}
                     introduction={image["introduction"]}
                   />
                 );
@@ -125,7 +124,7 @@ const HomePage: React.FC = () => {
           </motion.div>
         </motion.div>
       </GridContainer>
-      <AboutUsPage />
+      {/* <AboutUsPage /> */}
     </>
   );
 };

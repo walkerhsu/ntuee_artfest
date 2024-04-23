@@ -6,6 +6,7 @@ const ArtworkCardContainer = styled.div`
     max-width: 100%;
     min-width: 20%;
     height: calc(90%);
+    // max-height: 300px;
     background-color: #ffffff;
     border-radius: 3px;
     border: 1px solid #a1a1a1;
@@ -15,7 +16,8 @@ const ArtworkCardContainer = styled.div`
     align-items: center;
     .pic{
         max-width: 85%;
-        height: 85%;
+        height: 50%;
+        max-height: 300px;
         img{
             width: 100%;
             height: 100%;
@@ -24,7 +26,14 @@ const ArtworkCardContainer = styled.div`
         }
     } 
     .card-header{
-        margin-top: 0.5em;
+        margin: 0.5em;
+
+        border-bottom:none;
+        background-color:transparent;
+    }
+    .card-body{
+        margin: 1.0em;
+
         border-bottom:none;
         background-color:transparent;
     }
@@ -48,6 +57,16 @@ const ArtworkCardContainer = styled.div`
         opacity: 0.8;
         background-color: #f0f0f0;
     }
+
+    @media (max-width: 1000px) {
+        min-width: 33%;
+    }
+    @media (max-width: 750px) {
+        min-width: 50%;
+    }
+    @media (max-width: 500px) {
+        min-width: 100%;
+    }
 `
 
 interface ArtworkCardProps {
@@ -55,9 +74,11 @@ interface ArtworkCardProps {
     type: string;
     index: number;
     introduction: string;
+    title: string;
+    author: string;
 }
 
-export const ArtworkCard: React.FC<ArtworkCardProps> = ({ image, type, index, introduction }) => {
+export const ArtworkCard: React.FC<ArtworkCardProps> = ({ image, type, title, author, index, introduction }) => {
     const navigate = useNavigate();
     const handleClick = () => {
         console.log("Card Clicked");
@@ -68,13 +89,16 @@ export const ArtworkCard: React.FC<ArtworkCardProps> = ({ image, type, index, in
             <div className="pic">
                 <img src={image}/>
             </div>
-            <div className="card-header">
+            {/* <div className="card-header">
                 {type} #{index+1}
-            </div>
+            </div> */}
             <div className="card-body">
                 <h3 className="title">
-                    Special title treatment
+                    {title}
                 </h3>
+            </div>
+            <div className="card-header">
+                {author}
             </div>
             <div className="card-footer">
                 <p className="text">

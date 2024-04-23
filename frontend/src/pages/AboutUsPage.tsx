@@ -22,7 +22,7 @@ const HeaderContainer = styled.div`
   padding-top: 2rem;
   padding-left: 4.8rem;
   padding-right: 2.4rem;
-  border: 1px solid #000;
+  // border: 1px solid #000; 
   .tab {
     display: inline-block;
     margin-left: 80px;
@@ -32,7 +32,7 @@ const HeaderContainer = styled.div`
     height: auto;
     max-height: 37.5vh;
     overflow: hidden;
-    border: 1px solid #000;
+    // border: 1px solid #000;
     display: inline-block;
     margin-left: 10px;
   }
@@ -186,19 +186,6 @@ const AboutUsPage: React.FC = () => {
           />
         </Contributer>
       </ContributerContainer>
-      {/* <Section>
-        <Title>問題詢問</Title>
-        <QuestionForm onSubmit={handleQuestionSubmit}>
-          <Input
-            type="text"
-            placeholder="輸入你的問題"
-            value={question}
-            onChange={(e) => setQuestion(e.target.value)}
-          />
-          <Button type="submit">提交</Button>
-        </QuestionForm>
-        {answer && <Answer>{answer}</Answer>}
-      </Section> */}
     </Container>
   );
 };

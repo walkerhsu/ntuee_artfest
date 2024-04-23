@@ -8,12 +8,11 @@ import { useLocation } from "react-router-dom";
 
 // Styled components
 const Container = styled.div`
-  width: 97%;
+  width: calc(100dvw - 4rem);
   display: flex;
   flex-direction: column;
   padding: 2rem;
-  margin-right: 2rem;
-  border: 1px solid #000;
+  // border: 1px solid #000;
 `;
 
 const ArtworkContainer = styled.div`
@@ -22,11 +21,17 @@ const ArtworkContainer = styled.div`
   grid-template-columns: repeat(3, 1fr);
   column-gap: 50px;
   row-gap: 50px;
-  border: 1px solid #000;
+  // border: 1px solid #000;
+  @media screen and (max-width: 637px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (max-width: 390px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 const SubtitleContainer = styled.div`
-  width: 12vw;
+  width: 100vw;
   height: 7vh;
   display: flex;
   flex-direction: row;
@@ -44,7 +49,7 @@ const Subtitle = styled.h3<{ id: string }>`
   font-size: 1.5rem;
 `;
 
-type ArtworkType = "Photography" | "Drawings" | "Calligraphy" | "Interactive";
+type ArtworkType = "Photography" | "Drawings" | "Audiovisual" | "Calligraphy" | "Interactive";
 const ArtWorkCards: React.FC<ArtworkType> = (type: ArtworkType) => {
   return (
     <ArtworkContainer>
@@ -56,6 +61,8 @@ const ArtWorkCards: React.FC<ArtworkType> = (type: ArtworkType) => {
                   image={image["image"]}
                   index={index_image}
                   type={image_classes["type"]}
+                  title={image["title"]}
+                  author={image["author"]}
                   introduction={image["introduction"]}
                 />
               );
@@ -75,14 +82,14 @@ const IntroductionPage: React.FC = () => {
   const { title } = (state as state) || {};
 
   useEffect(() => {
-    console.log(title);
+    // console.log(title);
     const element = document.getElementById("ArtworkContainer_" + title);
     if (element) {
       element.scrollIntoView();
       const nav_element = document.getElementsByTagName("nav")[0];
       window.scrollBy(0, -nav_element.clientHeight);
     }
-    console.log(element);
+    // console.log(element);
   }, [title]);
 
   return (
@@ -98,6 +105,11 @@ const IntroductionPage: React.FC = () => {
         <Subtitle id="ArtworkContainer_Drawings">繪畫作品集</Subtitle>
       </SubtitleContainer>
       {ArtWorkCards("Drawings")}
+      <SubtitleContainer>
+        {/* <img src={placeholder} alt='info'></img> */}
+        <Subtitle id="ArtworkContainer_Audiovisual">影視作品集</Subtitle>
+      </SubtitleContainer>
+      {ArtWorkCards("Audiovisual")}
       <SubtitleContainer>
         {/* <img src={placeholder} alt='info'></img> */}
         <Subtitle id="ArtworkContainer_Calligraphy">書法作品集</Subtitle>

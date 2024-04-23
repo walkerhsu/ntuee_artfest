@@ -115,7 +115,7 @@
 	}
 
 	p {
-		text-align: justify;
+		text-align: center;
 		margin: 0 0 2rem 0;
 	}
 
@@ -133,9 +133,7 @@
 			position: relative;
 		}
 
-		header > p {
-			font-style: italic;
-		}
+		
 
 		header > h1 + p {
 			font-size: 1.1rem;
@@ -240,9 +238,13 @@
 			text-align: center;
 		}
 
-		/* #main > .post { */
+		#main > .post {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
 			/* padding: 8rem 8rem 6rem 8rem ; */
-		/* } */
+		}	
 
 			#main > .post header.major > .date {
 				margin-top: -2rem;
@@ -423,7 +425,7 @@
 		flex-direction: column;
 		-moz-justify-content: -moz-flex-end;
 		-webkit-justify-content: -webkit-flex-end;
-		-ms-justify-content: -ms-flex-end;
+		-ms-justify-content: -ms-date-end;
 		justify-content: flex-end;
 		pointer-events: none;
 		-moz-user-select: none;
@@ -431,7 +433,7 @@
 		-ms-user-select: none;
 		user-select: none;
 		height: 20rem;
-		padding-bottom: 8rem;
+		padding-bottom: 0rem;
 		position: relative;
 		text-align: center;
 		z-index: 2;

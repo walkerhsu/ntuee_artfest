@@ -4,25 +4,32 @@ import styled from "styled-components";
 
 // Styled components
 const Navbar = styled.nav`
-  width: 100vw;
+  width: calc(100%-4vw);
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border: 1px solid #000;
   position: fixed;
-  z-index: 10000;
+  z-index: 100000;
 `;
 
 const NavContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
+  padding: 2dvw;
 `;
 
 const NavSubContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  width: 100vw;
+  // @media screen and (max-width: 768px) {
+  //   width: 100vw;
+  // }
+
+  // @media screen and (max-width: 400px) {
+  //   width: 10vw;
+  // }
 `;
 
 const Logo = styled.a`
@@ -31,6 +38,15 @@ const Logo = styled.a`
   font-family: "Noto Sans TC", sans-serif;
   color: #333;
   text-decoration: none;
+  // @media screen and (max-width: 768px) {
+  //   width: 30%;
+  //   font-size: 1.2rem;
+  // }
+
+  // @media screen and (max-width: 400px) {
+  //   width: 30%;
+  //   font-size: 0.8rem;
+  // }
 `;
 
 const Span = styled.span`
@@ -60,6 +76,7 @@ const Menu = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 40vw;
 `;
 
 const MenuItem = styled.a`
@@ -129,9 +146,9 @@ const NavBar: React.FC<IProps> = ({ handleClick }) => {
       <NavContainer>
         <NavSubContainer>
           <Logo href="/">ntuee_artfest</Logo>
-          <Span/>
+          {/* <Span/> */}
           <Menu>
-            <MenuItem href="/visit">來藝術展逛逛</MenuItem>
+            <MenuItem href="/visit">來去逛逛</MenuItem>
             <MenuItem href="/introductions">本屆作品</MenuItem>
             <MenuItem href="/news">最新消息</MenuItem>
             <MenuItem href="/about">關於我們</MenuItem>
