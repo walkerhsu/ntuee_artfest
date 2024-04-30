@@ -31,7 +31,6 @@ const ArtworkContainer = styled.div`
 `;
 
 const SubtitleContainer = styled.div`
-  width: 100vw;
   height: 7vh;
   display: flex;
   flex-direction: row;

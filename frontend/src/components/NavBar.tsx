@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 // Styled components
 const Navbar = styled.nav`
-  width: calc(100%-4vw);
+  width: calc(100%);
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: fixed;

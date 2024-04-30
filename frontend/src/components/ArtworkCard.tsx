@@ -64,9 +64,6 @@ const ArtworkCardContainer = styled.div`
     @media (max-width: 750px) {
         min-width: 50%;
     }
-    @media (max-width: 500px) {
-        min-width: 100%;
-    }
 `
 
 interface ArtworkCardProps {
