@@ -30,7 +30,8 @@
     "migrate": "npx prisma migrate dev --name init",
     "build": "tsc",
     "lint": "tslint -c tslint.json src/**/*.ts",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "deploy": "NODE_ENV=production nodemon src/index.ts"
   },
   "devDependencies": {
     "@types/node": "^20.11.21",
