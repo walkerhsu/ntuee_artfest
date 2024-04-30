@@ -47,7 +47,11 @@ const HeaderContainer = styled.div`
     width: 50vw;
     height: auto;
     max-height: 37.5vh;
+<<<<<<< Updated upstream
     overflow: hidden;
+=======
+    border: 1px solid #000;
+>>>>>>> Stashed changes
     display: inline-block;
     margin-left: 10px;
   }
@@ -106,6 +110,7 @@ const HeaderTitle = styled.h1`
 
 const HeaderSubtitle = styled.div`
   font-size: 1rem;
+<<<<<<< Updated upstream
   line-height: 1.3;
   @media (max-width:  1290px) {
     font-size: 0.9rem;
@@ -125,6 +130,10 @@ const HeaderSubtitle = styled.div`
   @media (max-width:  415px) {
     font-size: 0.45rem;
   }
+=======
+  line-height: 1.5;
+  overflow-y: scroll;
+>>>>>>> Stashed changes
 `;
 
 const ContributerContainer = styled.div`
