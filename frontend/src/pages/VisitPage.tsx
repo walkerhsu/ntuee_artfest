@@ -151,6 +151,9 @@ const VideoContainer = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
+    cursor: pointer;
+    user-drag: none;
+    -webkit-user-drag: none;
     z-index: 1;
   }
 `;
@@ -158,7 +161,7 @@ const VideoContainer = styled.div`
 const VisitPage: React.FC = () => {
   const openingIframeRef = useRef<HTMLIFrameElement>(null);
   const closingIframeRef = useRef<HTMLIFrameElement>(null);
-  const playVideo = ( idx : number) => () => {
+  const playVideo = (idx: number) => () => {
     //  set the overlay image display to none
     const videoContainer =
       document.getElementsByClassName("videoIntroVideo")[idx];
@@ -169,11 +172,13 @@ const VisitPage: React.FC = () => {
     // play the video
     if (idx === 0) {
       if (openingIframeRef.current) {
+        openingIframeRef.current.style.display = "block";
         console.log(openingIframeRef.current);
         openingIframeRef.current.src += "?autoplay=1";
       }
     } else {
       if (closingIframeRef.current) {
+        closingIframeRef.current.style.display = "block";
         console.log(closingIframeRef.current);
         closingIframeRef.current.src += "?autoplay=1";
       }
@@ -206,6 +211,7 @@ const VisitPage: React.FC = () => {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                   ref={openingIframeRef}
+                  style={{ display: "none" }}
                 ></iframe>
                 <img src={fakeVideo} alt="iframeImage" onClick={playVideo(0)} />
               </VideoContainer>
@@ -227,6 +233,7 @@ const VisitPage: React.FC = () => {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                   ref={closingIframeRef}
+                  style={{ display: "none" }}
                 ></iframe>
                 {/* <a href="https://www.youtube.com/embed/dQw4w9WgXcQ"> */}
                 <img src={fakeVideo} alt="iframeImage" onClick={playVideo(1)} />
