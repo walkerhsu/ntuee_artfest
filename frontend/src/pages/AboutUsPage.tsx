@@ -1,65 +1,130 @@
 // ContactPage.tsx
 import React, { useState } from "react";
 import styled from "styled-components";
-import mainVisual_v from "../images/mainVisual_h.jpg";
+import mainVisual_h from "../images/mainVisual_h.jpg";
+import mainVisual_v from "../images/mainVisual_v.jpg";
+
 
 // Styled components
 const Container = styled.div`
   padding: 0rem;
 `;
 const HeaderContainer = styled.div`
-  width: calc(100vw-9.6rem-2px);
-  height: 40vh;
+  // width: calc(100vw - 4rem - 1.6rem);
+  // height: 40vh;
   display: grid;
   grid-column-gap: 1.6rem;
-  grid-row-gap: 1rem;
-  grid-template-rows: auto;
-  grid-template-columns: 1fr 42%;
+  grid-template-columns: 1fr 40%;
   justify-content: flex-start;
   align-content: start;
   align-items: center;
   position: relative;
-  padding-top: 2rem;
-  padding-left: 4.8rem;
-  padding-right: 2.4rem;
+  padding: 0.5rem 2rem;
   // border: 1px solid #000; 
   .tab {
     display: inline-block;
     margin-left: 80px;
+    @media (max-width:  1290px) {
+      margin-left: 80px;
+    }
+    @media (max-width:  1130px) {
+      margin-left: 80px;
+    }
+    @media (max-width:  970px) {
+      margin-left: 40px;
+    }
+    @media (max-width:  860px) {
+      margin-left: 30px;
+    }
+    @media (max-width:  445px) {
+      margin-left: 15px;
+    }
+    @media (max-width:  383px) {
+      margin-left: 10px;
+    }
   }
   .word {
     width: 50vw;
     height: auto;
     max-height: 37.5vh;
     overflow: hidden;
-    // border: 1px solid #000;
     display: inline-block;
     margin-left: 10px;
   }
   .pic {
-    width: 30vw;
-    height: 30vh;
+    // width: 30vw;
+    // height: 30vh;
     max-height: 37.5vh;
-    border: 1px solid #000;
     border-radius: 30px;
     overflow: hidden;
     display: inline-block;
     margin-left: 10px;
+    .pic_v {
+      @media (min-width:  500px) {
+        display: none;
+      }
+    }
+    .pic_h {
+      @media (max-width:  500px) {
+        display: none;
+      }
+    }
     img {
       width: 100%;
-      height: 100%;
+      // height: 100%;
     }
+  }
+  @media (max-width: 700px) {
   }
 `;
 
 const HeaderTitle = styled.h1`
   font-size: 3.5rem;
   margin-bottom: 2rem;
+  @media (max-width:  1290px) {
+    font-size: 3rem;
+  }
+  @media (max-width:  1130px) {
+    font-size: 2.5rem;
+  }
+  @media (max-width:  970px) {
+    font-size: 2.4053rem;
+  }
+  @media (max-width:  830px) {
+    font-size: 2rem;
+  }
+  @media (max-width:  700px) {
+    font-size: 1.6rem;
+  }
+  @media (max-width:  572px) {
+    font-size: 1.2rem;
+  }
+  @media (max-width:  415px) {
+    font-size: 1.1rem;
+  }
 `;
 
 const HeaderSubtitle = styled.div`
   font-size: 1rem;
   line-height: 1.3;
+  @media (max-width:  1290px) {
+    font-size: 0.9rem;
+  }
+  @media (max-width:  1130px) {
+    font-size: 0.8rem;
+  }
+  @media (max-width:  970px) {
+    font-size: 0.7rem;
+  }
+  @media (max-width:  830px) {
+    font-size: 0.6rem;
+  }
+  @media (max-width:  830px) {
+    font-size: 0.55rem;
+  }
+  @media (max-width:  415px) {
+    font-size: 0.45rem;
+  }
 `;
 
 const ContributerContainer = styled.div`
@@ -168,7 +233,8 @@ const AboutUsPage: React.FC = () => {
           </HeaderSubtitle>
         </div>
         <div className="pic">
-          <img src={mainVisual_v} alt="Art" />
+          <img className="pic_h" src={mainVisual_h} alt="Art" />
+          <img className="pic_v" src={mainVisual_v} alt="Art" />
         </div>
       </HeaderContainer>
       <ContributerContainer>

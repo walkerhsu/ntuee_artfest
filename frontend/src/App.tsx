@@ -50,11 +50,11 @@ function App() {
         }
         />
        
-        <Route path='news' element={
+        {/* <Route path='news' element={
           <Suspense fallback={<LoadingPage />}>
             <NewsPage NewsImgs={NewsImgs}/>
           </Suspense>
-        } />
+        } /> */}
         <Route path='news/2' element={
           <Suspense fallback={<LoadingPage />}>
             <NewsPage NewsImgs={NewsImgs2}/>

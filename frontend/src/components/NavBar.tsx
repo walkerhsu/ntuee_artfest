@@ -38,15 +38,15 @@ const Logo = styled.a`
   font-family: "Noto Sans TC", sans-serif;
   color: #333;
   text-decoration: none;
-  // @media screen and (max-width: 768px) {
-  //   width: 30%;
-  //   font-size: 1.2rem;
-  // }
+  @media screen and (max-width: 768px) {
+    width: 30%;
+    font-size: 1.3rem;
+  }
 
-  // @media screen and (max-width: 400px) {
-  //   width: 30%;
-  //   font-size: 0.8rem;
-  // }
+  @media screen and (max-width: 450px) {
+    width: 30%;
+    font-size: 1.0rem;
+  }
 `;
 
 const Span = styled.span`
@@ -99,6 +99,15 @@ const MenuItem = styled.a`
     background: #000;
     transition: all 0.3s;
   }
+  @media (max-width: 510px) {
+    font-size: 0.8rem;
+  }
+  @media (max-width: 450px) {
+    font-size: 0.7rem;
+  }
+  @media (max-width: 415px) {
+    font-size: 0.6rem;
+  }
 `;
 
 const MenuItemButton = styled.button`
@@ -126,6 +135,15 @@ const MenuItemButton = styled.button`
     background: #000;
     transition: all 0.45s ease-in;
   }
+  @media (max-width: 510px) {
+    font-size: 0.8rem;
+  }
+  @media (max-width: 450px) {
+    font-size: 0.7rem;
+  }
+  @media (max-width: 415px) {
+    font-size: 0.6rem;
+  }
 `;
 
 interface IProps {
@@ -150,7 +168,7 @@ const NavBar: React.FC<IProps> = ({ handleClick }) => {
           <Menu>
             <MenuItem href="/visit">來去逛逛</MenuItem>
             <MenuItem href="/introductions">本屆作品</MenuItem>
-            <MenuItem href="/news">最新消息</MenuItem>
+            {/* <MenuItem href="/news">最新消息</MenuItem> */}
             <MenuItem href="/about">關於我們</MenuItem>
             <MenuItemButton onClick={handleClick}>聯絡資訊</MenuItemButton>
           </Menu>

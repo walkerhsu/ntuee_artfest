@@ -104,11 +104,11 @@ const IntroductionPage: React.FC = () => {
         <Subtitle id="ArtworkContainer_Drawings">繪畫作品集</Subtitle>
       </SubtitleContainer>
       {ArtWorkCards("Drawings")}
-      <SubtitleContainer>
+      {/* <SubtitleContainer> */}
         {/* <img src={placeholder} alt='info'></img> */}
-        <Subtitle id="ArtworkContainer_Audiovisual">影視作品集</Subtitle>
-      </SubtitleContainer>
-      {ArtWorkCards("Audiovisual")}
+        {/* <Subtitle id="ArtworkContainer_Audiovisual">影視作品集</Subtitle> */}
+      {/* </SubtitleContainer> */}
+      {/* {ArtWorkCards("Audiovisual")} */}
       <SubtitleContainer>
         {/* <img src={placeholder} alt='info'></img> */}
         <Subtitle id="ArtworkContainer_Calligraphy">書法作品集</Subtitle>

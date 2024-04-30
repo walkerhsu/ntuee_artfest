@@ -44,7 +44,7 @@ const GalleryBlock: React.FC<GalleryBlockProps> = ({ imgsrc, Chinese, English })
 const titles = [
   { Chinese: "攝影", English: "Photography" },
   { Chinese: "繪畫", English: "Drawings" },
-  { Chinese: "影視欣賞", English: "Audiovisual" },
+  // { Chinese: "影視欣賞", English: "Audiovisual" },
   { Chinese: "書法", English: "Calligraphy" },
   { Chinese: "互動藝術", English: "Interactive" },
 ];
