@@ -1,5 +1,5 @@
 // NavBar.tsx
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
 // Styled components
@@ -20,9 +20,10 @@ const NavContainer = styled.div`
 
 const NavSubContainer = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 100vw;
+  padding: 0 0 0 5dvw;
   // @media screen and (max-width: 768px) {
   //   width: 100vw;
   // }
@@ -49,34 +50,10 @@ const Logo = styled.a`
   }
 `;
 
-const Span = styled.span`
-  display: inline-block;
-  margin-left: 45vw;
-`;
-const MenuButton = styled.button`
-  display: block;
-  background: none;
-  border: none;
-  cursor: pointer;
-
-  &:focus {
-    outline: none;
-  }
-`;
-
-const MenuIcon = styled.span`
-  width: 20px;
-  height: 2px;
-  background-color: #333;
-  display: block;
-  margin-bottom: 4px;
-`;
-
 const Menu = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 40vw;
 `;
 
 const MenuItem = styled.a`
@@ -153,17 +130,12 @@ interface IProps {
 
 // Component
 const NavBar: React.FC<IProps> = ({ handleClick }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
 
   return (
     <Navbar role="navigation">
       <NavContainer>
         <NavSubContainer>
-          <Logo href="/">ntuee_artfest</Logo>
+          <Logo href="/">NTUEE Artfest</Logo>
           {/* <Span/> */}
           <Menu>
             <MenuItem href="/visit">來去逛逛</MenuItem>

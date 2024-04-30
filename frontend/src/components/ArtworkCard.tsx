@@ -5,8 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const ArtworkCardContainer = styled.div`
     max-width: 100%;
     min-width: 20%;
-    height: calc(90%);
-    // max-height: 300px;
+    height: 550px;
     background-color: #ffffff;
     border-radius: 3px;
     border: 1px solid #a1a1a1;
@@ -14,9 +13,10 @@ const ArtworkCardContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    
     .pic{
         max-width: 85%;
-        height: 50%;
+        height: 60%;
         max-height: 300px;
         img{
             width: 100%;
@@ -42,7 +42,11 @@ const ArtworkCardContainer = styled.div`
     }
     .text {
         color:#444444;
-      }
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 5;
+        overflow: hidden;
+    }
     .card-footer{
         border-top:none !important;
         background-color:transparent !important;
@@ -58,11 +62,14 @@ const ArtworkCardContainer = styled.div`
         background-color: #f0f0f0;
     }
 
-    @media (max-width: 1000px) {
+    @media (max-width: 1100px) {
         min-width: 33%;
     }
-    @media (max-width: 750px) {
+    @media (max-width: 780px) {
         min-width: 50%;
+    }
+    @media (max-width: 450px) {
+        min-width: 90%;
     }
 `
 
@@ -84,7 +91,7 @@ export const ArtworkCard: React.FC<ArtworkCardProps> = ({ image, type, title, au
     return (
         <ArtworkCardContainer onClick={handleClick}>
             <div className="pic">
-                <img src={image}/>
+                <img src={image} alt='artwork_image'/>
             </div>
             {/* <div className="card-header">
                 {type} #{index+1}

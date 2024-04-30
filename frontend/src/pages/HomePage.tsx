@@ -2,13 +2,10 @@
 import React from "react";
 import { useRef, RefObject, useState, useEffect } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import gallery from "../images/gallery.jpg";
-import mainVisual from "../images/mainVisual_h.png";
 import { ArtworkCard } from "../components/ArtworkCard";
 import { motion } from "framer-motion";
 import { IMAGE_INFO } from "../images/exhibits_info";
-import AboutUsPage from "./AboutUsPage";
 
 // Styled components
 const TitleContainer = styled.h3`
@@ -57,7 +54,7 @@ const Title = styled.h1`
 
 const GridContainer = styled.div`
   width: calc(100%-6px-1rem);
-  height: 580px;
+  height: 750px;
   // border: 3px solid #111;
   display: flex;
   flex-direction: column;
@@ -66,6 +63,7 @@ const GridContainer = styled.div`
   .carousel {
     cursor: grab;
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     overflow: hidden;

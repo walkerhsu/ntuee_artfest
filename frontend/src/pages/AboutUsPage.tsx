@@ -1,5 +1,5 @@
 // ContactPage.tsx
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import mainVisual_h from "../images/mainVisual_h.jpg";
 import mainVisual_v from "../images/mainVisual_v.jpg";
@@ -47,7 +47,11 @@ const HeaderContainer = styled.div`
     width: 50vw;
     height: auto;
     max-height: 37.5vh;
+<<<<<<< Updated upstream
     overflow: hidden;
+=======
+    border: 1px solid #000;
+>>>>>>> Stashed changes
     display: inline-block;
     margin-left: 10px;
   }
@@ -106,6 +110,7 @@ const HeaderTitle = styled.h1`
 
 const HeaderSubtitle = styled.div`
   font-size: 1rem;
+<<<<<<< Updated upstream
   line-height: 1.3;
   @media (max-width:  1290px) {
     font-size: 0.9rem;
@@ -125,6 +130,10 @@ const HeaderSubtitle = styled.div`
   @media (max-width:  415px) {
     font-size: 0.45rem;
   }
+=======
+  line-height: 1.5;
+  overflow-y: scroll;
+>>>>>>> Stashed changes
 `;
 
 const ContributerContainer = styled.div`
@@ -139,84 +148,8 @@ const Contributer = styled.div`
   height: 100%;
 `;
 
-const Authors = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-`;
-
-const Author = styled.div``;
-
-const QuestionForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  margin-top: 2rem;
-`;
-
-const Input = styled.input`
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-`;
-
-const Button = styled.button`
-  padding: 0.5rem 1rem;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-`;
-
-const Answer = styled.div`
-  margin-top: 1rem;
-`;
-
-const Paragraph = styled.p`
-  font-size: 1.2rem;
-  line-height: 1.6;
-`;
-
-const PersonnelContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const PersonnelImage = styled.img`
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  margin-bottom: 1rem;
-`;
-
-const PersonnelName = styled.h3`
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-`;
-
-const PersonnelRole = styled.p`
-  font-size: 1.2rem;
-`;
-
 // Component
 const AboutUsPage: React.FC = () => {
-  const [question, setQuestion] = useState<string>("");
-  const [answer, setAnswer] = useState<string>("");
-
-  const handleQuestionSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // Call your AI bot API here with the question
-    // For demonstration purpose, let's assume the answer comes back as a string
-    const response = await fetch(
-      `your-bot-api-url?question=${encodeURIComponent(question)}`
-    );
-    const data = await response.json();
-    setAnswer(data.answer);
-  };
-
   return (
     <Container>
       <HeaderContainer>
