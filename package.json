@@ -9,7 +9,9 @@
     "scripts": {
         "install:all": "yarn install && cd frontend && yarn install && cd .. && cd backend && yarn install",
         "frontend": "cd frontend && yarn start",
-        "backend": "cd backend && yarn start"
+        "backend": "cd backend && yarn start",
+        "build": "cd frontend && yarn build", 
+        "deploy": "cd backend && yarn deploy"
     },
     "dependencies": {
         "pnpm": "^8.6.3",
