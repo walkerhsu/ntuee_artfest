@@ -55,8 +55,6 @@ const ImgContainer = styled.div`
 
 const VideoBlockContainer = styled.div`
   width: 100%;
-  height: 1000px;
-  // border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -66,12 +64,11 @@ const VideoBlockContainer = styled.div`
     width: 100%;
     height: 500px;
     border: 1px solid black;
-    // margin: 0rem;
     display: flex;
     flex-direction: row;
     align-items: center;
     .videoIntroWord {
-      width: 25%;
+      width: 40%;
       height: 85%;
       // border: 1px solid black;
       margin: 0.5rem;
@@ -82,26 +79,43 @@ const VideoBlockContainer = styled.div`
     }
 
     .videoIntroVideo {
-      width: 75%;
-      height: 96%;
-      // border: 1px solid black;
+      width: 60%;
+      height: 100%;
       padding: 2%;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
     }
+    @media screen and (max-width: 1100px) {
+      .videoIntroWord {
+        width: 25%;
+      }
+      .videoIntroVideo {
+        width: 75%;
+      }
+    }
 
     @media screen and (max-width: 768px) {
       flex-direction: column;
-      height: 760px;
+      height: 650px;
       .videoIntroWord {
         width: 100%;
         height: 20%;
       }
       .videoIntroVideo {
         width: 100%;
-        height: 80%;
+      }
+    }
+    @media screen and (max-width: 480px) {
+      flex-direction: column;
+      height: 500px;
+      .videoIntroWord {
+        width: 100%;
+        height: 20%;
+      }
+      .videoIntroVideo {
+        width: 100%;
       }
     }
   }
@@ -110,6 +124,8 @@ const VideoBlockContainer = styled.div`
 const Section = styled.section`
   width: 100%;
   margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Title = styled.h3`
@@ -143,7 +159,7 @@ const ParagraphContainer = styled.div`
 const VideoContainer = styled.div`
   position: relative;
   height: 100%;
-  width: 94%;
+  width: 90%;
   margin: 2rem 3%;
   img {
     position: absolute;
@@ -155,6 +171,14 @@ const VideoContainer = styled.div`
     user-drag: none;
     -webkit-user-drag: none;
     z-index: 1;
+    @media (max-width: 768px) {
+      width: 100%;
+      height: 360px;
+    }
+    @media (max-width: 480px) {
+      width: 100%;
+      height: 310px;
+    }
   }
 `;
 
@@ -174,13 +198,13 @@ const VisitPage: React.FC = () => {
       if (openingIframeRef.current) {
         openingIframeRef.current.style.display = "block";
         console.log(openingIframeRef.current);
-        openingIframeRef.current.src += "?autoplay=1";
+        openingIframeRef.current.src += "?autoplay=1&mute=1";
       }
     } else {
       if (closingIframeRef.current) {
         closingIframeRef.current.style.display = "block";
         console.log(closingIframeRef.current);
-        closingIframeRef.current.src += "?autoplay=1";
+        closingIframeRef.current.src += "?autoplay=1&mute=1";
       }
     }
   };
@@ -228,16 +252,14 @@ const VisitPage: React.FC = () => {
                 <iframe
                   width="100%"
                   height="100%"
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                  src="https://www.youtube.com/embed/1PhKv0umB_w"
                   title="Opening Video"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                   ref={closingIframeRef}
                   style={{ display: "none" }}
                 ></iframe>
-                {/* <a href="https://www.youtube.com/embed/dQw4w9WgXcQ"> */}
                 <img src={fakeVideo} alt="iframeImage" onClick={playVideo(1)} />
-                {/* </a> */}
               </VideoContainer>
             </div>
           </div>
