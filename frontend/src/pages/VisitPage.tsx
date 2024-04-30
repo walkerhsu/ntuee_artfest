@@ -198,13 +198,13 @@ const VisitPage: React.FC = () => {
       if (openingIframeRef.current) {
         openingIframeRef.current.style.display = "block";
         console.log(openingIframeRef.current);
-        openingIframeRef.current.src += "?autoplay=1&mute=1";
+        openingIframeRef.current.src += "?autoplay=1";
       }
     } else {
       if (closingIframeRef.current) {
         closingIframeRef.current.style.display = "block";
         console.log(closingIframeRef.current);
-        closingIframeRef.current.src += "?autoplay=1&mute=1";
+        closingIframeRef.current.src += "?autoplay=1";
       }
     }
   };
@@ -252,7 +252,7 @@ const VisitPage: React.FC = () => {
                 <iframe
                   width="100%"
                   height="100%"
-                  src="https://www.youtube.com/embed/1PhKv0umB_w"
+                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
                   title="Opening Video"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
